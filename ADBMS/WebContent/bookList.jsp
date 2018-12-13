@@ -54,7 +54,7 @@ body {
 		</tr>
 		<tr>
 			<td height="30" colspan="6" bgcolor="#EFEFEF"><div
-					style="float: left; position: relative; padding-top: 5px; padding-bottom: 5px;">图书信息列表</div>		
+					style="float: left; position: relative; padding-top: 5px; padding-bottom: 5px;margin-left: 4px;">图书信息列表</div>		
 				</td>
 		</tr>
 		<tr>
@@ -63,7 +63,7 @@ body {
 			<td width="85" align="center" bgcolor="#FFFFFF">单价</td>
 			<td width="38" align="center" bgcolor="#FFFFFF">数量</td>
 			<td width="148" align="center" bgcolor="#FFFFFF">作者</td>
-			<td width="97" align="center" bgcolor="#FFFFFF">操作</td>
+			<td width="50" align="center" bgcolor="#FFFFFF">操作</td>
 		</tr>
 		<c:forEach var="book" items="${requestScope.bookList}">
 			<tr>
@@ -76,18 +76,20 @@ body {
 				<td bgcolor="#FFFFFF">&nbsp; <c:out value="${book.author}" /></td>
 				<td bgcolor="#FFFFFF">&nbsp;
 					<form action="SelectBookByIDServlet" method="get"
-						style="float: left; margin-top: 0;">
+						style="float: left; margin-top: 0;"  class="xg">
 						<input type="hidden" name="id" value="${book.id }">
 						<%--       		<input type="hidden" name="page" value="<%=pagelist.get(0) %>"> --%>
-						<input type="submit" value="修改"
-							style="background-color: #C9C9C9s; cursor: pointer; margin-left: 2px;">
+						<!-- <input type="submit" value="修改"
+							style="background-color: #C9C9C9s; cursor: pointer; margin-left: 2px;"> -->
+							<img alt="修改" src="images/modify.gif" style=" cursor: pointer; margin-left: 2px;" onclick="xg();">
 					</form>
 					<form action="DeleteServlet" method="get"
-						style="float: left; margin-top: 0;">
+						style="float: left; margin-top: 0;" class="sc">
 						<input type="hidden" name="id" value="${book.id }"> <input
-							type="hidden" name="page" value="<%=pagelist.get(0)%>"> <input
-							type="submit" value="刪除"
-							style="background-color: #C9C9C9s; cursor: pointer; margin-left: 2px;">
+							type="hidden" name="page" value="<%=pagelist.get(0)%>"> 
+						<!-- <input	type="submit" value="刪除"
+							style="background-color: #C9C9C9s; cursor: pointer; margin-left: 2px;"> -->
+							<img  alt="删除" src="images/del.gif" style=" cursor: pointer; margin-left: 2px;" onclick="sc();">
 					</form>
 				</td>
 			</tr>
@@ -110,5 +112,13 @@ body {
 		<a class="a" href="BookServlet?action=query&operation=add">下一页</a> <a
 			class="a" href="BookServlet?action=query&operation=max">尾页</a>
 	</div>
+	<script type="text/javascript">
+		function sc() {
+			document.getElementsByClassName("sc")[0].submit();
+		};
+		function xg() {
+			document.getElementsByClassName("xg")[0].submit();
+		};
+	</script>
 </body>
 </html>

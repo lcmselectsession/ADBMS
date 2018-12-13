@@ -13,10 +13,10 @@
 		cellpadding="0" cellspacing="1" >
 		<tr>
 			<td height="30" colspan="1" bgcolor="#EFEFEF"><div
-					style="float: left; position: relative; padding-top: 5px; padding-bottom: 5px;">图书信息修改列表</div>
+					style="float: left; position: relative; padding-top: 5px; padding-bottom: 5px;margin-left: 4px;">图书信息修改列表</div>
 				<div bgcolor="darkgray" style="float: right;">
 					<a href="index.jsp"><button
-							style="cursor: pointer; margin-top: 3px">返回</button></a>
+							style="cursor: pointer; margin-top: 3px;margin-right: 4px;">返回</button></a>
 				</div></td>
 		</tr>
 

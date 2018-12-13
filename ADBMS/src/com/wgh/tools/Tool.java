@@ -11,7 +11,17 @@ import com.wgh.model.BookForm;
 
 public class Tool {
 	public static int getMaxPage(int pageLength) {
-		int end = MyJDBC.Query("select * from tb_book").size();
+		int end = MyJDBC.Query("select id from tb_book").size();
+		int endpage = end / pageLength;
+		//当不整除时，加1
+		if(end % pageLength!=0) {
+			endpage = endpage+1;
+		}
+		return endpage;
+	}
+	
+	public static int getMaxSearchPage(List<?> list,int pageLength) {
+		int end = list.size();
 		int endpage = end / pageLength;
 		//当不整除时，加1
 		if(end % pageLength!=0) {
@@ -75,6 +85,39 @@ public class Tool {
 				}
 			}
 			lists.add(f);
+		}
+		return lists;
+		
+	}
+	public static List<BookForm> getBeanListHasLengthLimit(List<Map<String, Object>> list,int start,int pageLength){
+		List<BookForm> lists = new ArrayList<>();
+		for (int i = 0; i < list.size(); i++) {
+			Set<Map.Entry<String, Object>> entrySet = list.get(i).entrySet();
+			BookForm f = new BookForm();
+			if ((i >= ((start - 1) * pageLength)) && i < (start * pageLength)) {
+				for (Map.Entry<String, Object> entry : entrySet) {
+					switch (entry.getKey()) {
+					case "id":
+						f.setId((int) entry.getValue());
+						break;
+					case "name":
+						f.setName(entry.getValue().toString());
+						break;
+					case "price":
+						f.setPrice((Float) entry.getValue() * 100 / 100.0);
+						break;
+					case "bookCount":
+						f.setBookCount((int) entry.getValue());
+						break;
+					case "author":
+						f.setAuthor((entry.getValue().toString()));
+						break;
+					default:
+						break;
+					}
+				}
+				lists.add(f);
+			}
 		}
 		return lists;
 		

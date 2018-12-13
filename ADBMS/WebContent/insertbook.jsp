@@ -16,10 +16,10 @@
 	<table width="300" height="47" border="0px" align="center"
 		cellpadding="0" cellspacing="1" >
 		<td height="30" colspan="5" bgcolor="#EFEFEF"><div
-				style="float: left; position: relative; padding-top: 5px; padding-bottom: 5px;">数据信息添加图表</div>
+				style="float: left; position: relative; padding-top: 5px; padding-bottom: 5px;margin-left: 4px;">数据信息添加图表</div>
 			<div bgcolor="darkgray" style="float: right;">
 				<a href="index.jsp"><button
-						style="cursor: pointer; margin-top: 3px">返回</button></a>
+						style="cursor: pointer; margin-top: 3px;float: right; margin-right: 4px">返回</button></a>
 			</div></td>
 				<form action="InsertServlet" method="get">
 			<tr style="height: 25px">

@@ -83,15 +83,16 @@ public class SelectByBookNameAndAuthor extends HttpServlet {
 
 		}
 		req.getSession().setAttribute("selectbook", list);
-
+		
+		int endpage = Tool.getMaxSearchPage(list, pageLength);
+		
+		start = Tool.getSelectStartPage(start, operation, endpage);
 		// 将当前访问的页放入session中
 		req.getSession().setAttribute("startview", start);
 
 		// 将查询出的数据，装入bookForm的List集合中
-		List<BookForm> lists = Tool.getBeanList(list);
+		List<BookForm> lists = Tool.getBeanListHasLengthLimit(list, start, pageLength);
 
-		// 获取数据库中表的最大页面数
-		int endpage = Tool.getMaxPage(pageLength);
 		// 为查询表生成新的导航页码的数据，以供直接访问页表
 		List<Integer> pagelist = Tool.getPageList(start, endpage);
 
