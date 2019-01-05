@@ -3,7 +3,7 @@ package com.wgh.service;
 import java.util.List;
 import java.util.Map;
 
-import com.wgh.dao.MyJDBC;
+import com.xiaoming.jdbc.MyJDBC;
 
 public class SelectSercice {
 	public List<Map<String, Object>> SelectBookByIDServlet(String id) {

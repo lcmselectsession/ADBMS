@@ -29,9 +29,13 @@ body {
 	position: relative;
 	padding: 12px 10px 5px 10px;
 }
+li{
+	display: inline;
+}
 </style>
 </head>
 <body>
+
 	<%
 		List pagelist = (List) request.getAttribute("pagelist");
 	%>

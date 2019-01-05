@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.wgh.dao.MyJDBC;
 import com.wgh.model.BookForm;
 import com.wgh.tools.Tool;
+import com.xiaoming.jdbc.MyJDBC;
 
 @WebServlet("/SelectByBookNameAndAuthor")
 public class SelectByBookNameAndAuthor extends HttpServlet {

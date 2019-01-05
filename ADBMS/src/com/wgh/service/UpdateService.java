@@ -1,6 +1,6 @@
 package com.wgh.service;
 
-import com.wgh.dao.MyJDBC;
+import com.xiaoming.jdbc.MyJDBC;
 
 public class UpdateService {
 	public int UpdateBook(String name,String price,String bookCount,String author,String id) {

@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.wgh.dao.MyJDBC;
 import com.wgh.model.BookForm;
 import com.wgh.tools.Tool;
+import com.xiaoming.jdbc.MyJDBC;
 
 @WebServlet("/BookServlet")
 public class BookServlet extends HttpServlet {
@@ -47,7 +47,6 @@ public class BookServlet extends HttpServlet {
 		String page = request.getParameter("page");
 		// 定义操作，上下页
 		String operation = null;
-
 		// 从Session中获取上次访问了的起始页
 		// 为null时，说明是第一次访问
 		if (request.getSession().getAttribute("start") == null) {
@@ -80,10 +79,8 @@ public class BookServlet extends HttpServlet {
 		// 分页查询
 		String sql = "SELECT * FROM tb_book limit ?,?";
 		List<Map<String, Object>> list = MyJDBC.preQuery(sql, (start - 1) * pageLength, pageLength);
-
 		// 将查询出的数据，装入bookForm的List集合中
 		List<BookForm> lists = Tool.getBeanList(list);
-
 		// 为查询表生成新的导航页码的数据，以供直接访问页表
 		List<Integer> pagelist = Tool.getPageList(start, endpage);
 	

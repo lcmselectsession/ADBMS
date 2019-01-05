@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.wgh.dao.MyJDBC;
+import com.xiaoming.jdbc.MyJDBC;
 
 @WebServlet("/DeleteServlet")
 public class DeleteServlet extends HttpServlet{

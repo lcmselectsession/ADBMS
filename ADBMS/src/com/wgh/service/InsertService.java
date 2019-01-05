@@ -1,6 +1,6 @@
 package com.wgh.service;
 
-import com.wgh.dao.MyJDBC;
+import com.xiaoming.jdbc.MyJDBC;
 
 public class InsertService {
 	public void InsertDate(String name,String price,String bookCount,String author){

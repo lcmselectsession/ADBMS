@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.wgh.dao.MyJDBC;
 import com.wgh.model.BookForm;
+import com.xiaoming.jdbc.MyJDBC;
 
 public class Tool {
 	public static int getMaxPage(int pageLength) {
